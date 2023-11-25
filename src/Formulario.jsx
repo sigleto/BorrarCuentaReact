@@ -9,7 +9,7 @@ const Formulario = () => {
   
   const accion = async (datos) => {
     try {
-      await fetch("https://pagina-react-para-vercel.vercel.app/formulario", {
+      await fetch("https://borrar-cuenta-react-backend.vercel.app/formulario", {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(datos),
