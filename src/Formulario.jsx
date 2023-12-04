@@ -18,6 +18,7 @@ const Formulario = () => {
       console.log("Datos enviados correctamente");
       reset();
       navigate('/')
+      alert('¡¡Datos enviados correctamente!!; Proximamente te enviaremos un correo de confirmación para eliminar todos tus datos de forma definitiva');
     } catch (error) {
       console.log("Error al enviar los datos:", error);
     } 
@@ -32,18 +33,18 @@ const Formulario = () => {
         
         
         <div className="campos">
-          <label htmlFor="email"><p>E-Mail</p></label>
-          <input className="inputc" id="email" placeholder="Sólo si quieres que te contestemos" {...register("correo", { pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/ })} />
+          <label htmlFor="email"><p>*E-Mail</p></label>
+          <input className="inputc" id="email" placeholder="" {...register("correo",{required: true}, { pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/ })} />
         </div>
 
         <div className="campos">
-          <label htmlFor="Alias"><p>*Alias</p></label>
-          <input id="Alias" placeholder="Introduce tu alias" {...register("alias", { required: true })} />
+          <label htmlFor="Alias"><p>Alias</p></label>
+          <input id="Alias" placeholder="Introduce tu alias" {...register("alias",)} />
         </div>
         
         <div className="campos comentarios">
           <label htmlFor="comentarios"><p>COMENTARIOS</p></label>
-          <textarea id="comentarios" placeholder="Puedes enviar algún establecimiento que deseas que incluyamos,correción o sugerencia" {...register("comentarios")} />
+          <textarea id="comentarios" placeholder="" {...register("comentarios")} />
         </div>
         <input type="submit" value="ENVIAR DATOS" />
         {errors.alias?.type === "required" && <div><p>Es obligatorio ingresar un alias</p></div>}
